@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Encryption and Decryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 2rem;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #0044cc;
+        }
+
+        form {
+            margin-top: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, button {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #0044cc;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003399;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Image Encryption and Decryption</h1>
+
+    <h2>Encrypt a Message into an Image</h2>
+    <form action="/encrypt" method="post" enctype="multipart/form-data">
+        <label for="csv_file">Upload CSV File:</label>
+        <input type="file" name="csv_file" id="csv_file" required><br>
+
+        <label for="image_file">Upload Image File:</label>
+        <input type="file" name="image_file" id="image_file" required><br>
+
+        <button type="submit">Encrypt</button>
+    </form>
+</body>
+</html>

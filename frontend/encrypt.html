@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypt/Decrypt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            color: #333;
+            padding: 2rem;
+        }
+
+        h1, h3 {
+            color: #1565c0;
+        }
+
+        img {
+            display: block;
+            margin: 1rem auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form {
+            margin-top: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #1565c0;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <h3>Encrypted Image</h3>
+    <img src="{{ url_for('static', filename='image_with_message.png') }}" alt="Encrypted Image" width="300">
+    
+    <h3>QR Code</h3>
+    <img src="{{ url_for('static', filename='ENC.png') }}" alt="QR Code" width="300">
+    
+    <hr>
+    <h1>Decryption Form</h1>
+    <form action="/decrypt" method="post" enctype="multipart/form-data">
+        <label for="image_file">Choose Image with Hidden Message:</label>
+        <input type="file" name="image_file" required>
+
+        <label for="key">Enter AES Key:</label>
+        <input type="text" name="key" placeholder="Enter AES Key" required>
+
+        <label for="iv">Enter IV:</label>
+        <input type="text" name="iv" placeholder="Enter IV" required>
+
+        <label for="ciphertext">Enter Ciphertext:</label>
+        <input type="text" name="ciphertext" placeholder="Enter ciphertext" required>
+
+        <button type="submit">Decrypt</button>
+    </form>
+</body>
+</html>
